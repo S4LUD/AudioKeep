@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "audiokeep"
+version = "1.0.0"
+description = "Prevents Bluetooth speakers/headsets from sleeping by outputting an ultra-low-volume noise floor."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = [
+    "sounddevice>=0.4.6",
+    "numpy>=1.24",
+    "pystray>=0.19",
+    "Pillow>=10.0",
+    "customtkinter>=5.2",
+    "platformdirs>=4.0",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+build = ["pyinstaller>=6.0"]
+dev = ["pytest>=7.0", "pytest-mock>=3.0"]
+
+[project.scripts]
+audiokeep = "audiokeep.main:main"
+
+[project.gui-scripts]
+audiokeep-gui = "audiokeep.main:main"
